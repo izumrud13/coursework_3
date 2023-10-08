@@ -27,7 +27,8 @@ def sort_files(new_files):
 
 def form_list(sort_file):
     for i in sort_file:
-        #date = i["date"].strftime("%d.%m.%Y")
+        # Изменяем формат даты
+        date = change_date(i["date"])
 
         # Маскируем номер карты отправителя
         masked_card_number = mask_card_number(i["from"])
@@ -36,7 +37,7 @@ def form_list(sort_file):
         masked_account_number = mask_account_number(i["to"])
 
         # Выводим информацию о переводе
-        #print(f"{date} {sort_file['description']}")
+        print(f"{date} {i['description']}")
         print(f"{masked_card_number} -> Счет {masked_account_number}")
         print(f"{i['operationAmount']['amount']} {i['operationAmount']['currency']['name']}")
 
@@ -54,3 +55,7 @@ def mask_card_number(card_number):
 def mask_account_number(card_number):
     # Видны только последние 4 цифры номера счета
     return f"**{card_number[-4:]}"
+
+
+def change_date(date):
+    return f'{date[8:10]}.{date[5:7]}.{date[:4]}'
