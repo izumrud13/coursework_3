@@ -38,8 +38,7 @@ TRANSACTIONS = [
 
 
 def test_open_file():
-    test = os.path.join()
-    result = open_file(test)
+    result = open_file('D:/Pyyhon/coursework/utils/operations.json')
     assert result[0]["date"] == "2019-08-26T10:50:58.294041"
     assert len(result[0]) > 0
 
