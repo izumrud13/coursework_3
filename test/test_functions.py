@@ -1,5 +1,3 @@
-import os.path
-
 from utils.functions import mask_card_number, mask_account_number, change_date, sort_files, form_list, open_file
 
 TRANSACTIONS = [
